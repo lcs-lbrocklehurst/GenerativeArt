@@ -31,10 +31,10 @@ struct TileView: View {
 
     // Determine the diagonal
     
-    let flipOne = Coin.tails
+    let flipOne = Coin.flip()
     
     // Determine wether top or bottom triangle gets filled with color 1
-    let flipTwo = Coin.tails
+    let flipTwo = Coin.flip()
     
     // Determine the final fill color
     let flipThree = Coin.flip()
@@ -44,7 +44,7 @@ struct TileView: View {
     let markerTwo = Color.blue
     
     // Decide on colors
-    let flipForColor = Coin.tails
+    let flipForColor = Coin.flip()
     
     // MARK: Computed properties
     
