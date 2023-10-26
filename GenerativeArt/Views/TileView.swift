@@ -28,14 +28,21 @@ enum Coin: Int {
 
 struct TileView: View {
     
-    let flipOne = Coin.flip()
+
+    // Determine the diagonal
+    
+    let flipOne = Coin.tails
+    
+    // Determine wether top or bottom triangle gets filled with color 1
+    let flipTwo = Coin.tails
+    
     
     // Choosing my markers
     let markerOne = Color.red
     let markerTwo = Color.blue
     
     // Decide on colors
-    let flipForColor = Coin.heads
+    let flipForColor = Coin.tails
     
     // MARK: Computed properties
     
@@ -56,12 +63,12 @@ struct TileView: View {
             if flipOne == .heads {
                 TriangleTopRight()
                     .stroke(.red)
-                    .fill(colorOne)
+                    .fill(flipTwo == .heads ? colorOne : .clear)
                     .aspectRatio(1.0, contentMode: .fit)
                 
                 TriangleBottomLeft()
                     .stroke(.red)
-                    .fill(colorTwo)
+                    .fill(flipTwo == .tails ? colorOne : .clear)
                     .aspectRatio(1.0, contentMode: .fit)
                                 
             } else {
@@ -69,12 +76,12 @@ struct TileView: View {
                 
                 TriangleTopLeft()
                     .stroke(.red)
-                    .fill()
+                    .fill(flipTwo == .heads ? colorOne : . clear)
                     .aspectRatio(1.0, contentMode: .fit)
                 
                 TriangleBottomRIght()
                     .stroke(.red)
-                    .fill()
+                    .fill(flipTwo == .tails ? colorOne : .clear)
                     .aspectRatio(1.0, contentMode: .fit)
             }
             
