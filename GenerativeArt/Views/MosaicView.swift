@@ -8,24 +8,32 @@
 import SwiftUI
 
 struct MosaicView: View {
+    
+    // MARK: Stored properties
+    let columns = 7
+    let rows = 4
+    
+    // MARK: Computed properties
     var body: some View {
-        Grid(horizontalSpacing: 0, verticalSpacing: 0) {
-            
-            
-            ForEach(1..<4) { j in
+        VStack {
+            Grid(horizontalSpacing: 0, verticalSpacing: 0) {
                 
-                GridRow {
-                    //Repeats within a row (columns)
-                    ForEach(1..<4) { i in
-                       TileView()
+                
+                ForEach(0..<rows, id: \.self) { j in
+                    
+                    GridRow {
+                        //Repeats within a row (columns)
+                        ForEach(0..<columns, id: \.self) { i in
+                           TileView()
+                    }
+                            }
                 }
-                        }
-            }
-            
+                
 
+            }
         }
-       
     }
+    
 }
 
 #Preview {
