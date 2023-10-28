@@ -99,7 +99,6 @@ struct TileView: View {
            
            
         }
-        .padding()
     }
 }
 
